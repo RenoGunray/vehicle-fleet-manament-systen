@@ -72,8 +72,10 @@ nav{
 
 /*Transport Officer Dashboard All things Contained*/
 
-.all-things-contained{
-    
+.table-box {
+    border: 1px solid green;
+    padding: 2%;
+    margin-top: 20px;
 }
 
 .tpo-nav-items{
@@ -84,7 +86,7 @@ nav{
 }
 
 .tables{
-    width: 60%;
+    width: 100%;
 }
 
 .tables tr{
