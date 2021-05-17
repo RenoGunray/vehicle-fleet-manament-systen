@@ -31,10 +31,8 @@ include 'conn.php';
         </div>
     </nav>
     <div class="container">
-    <div class="table-box"> <!--table box starts here-->
         <p>Vehicle List</p>
-        <table class="tables"> <!--table displaying vehicle information-->
-            <!--table headers-->
+        <table class="tables">
             <th>id</th>
             <th>Name</th>
             <th>Model</th>
@@ -44,7 +42,7 @@ include 'conn.php';
             <?php $sel = mysqli_query($conn, "select * from vehicles");?>
 
             <?php 
-                while($row=mysqli_fetch_array($sel)) { //while loop: fetching vehicle information
+                while($row=mysqli_fetch_array($sel)) {
                     $v_id = $row['v_id'];
                     $name = $row['name'];
                     $model = $row['model'];
@@ -60,9 +58,8 @@ include 'conn.php';
             <td><?php echo $type; ?></td>
             <td><?php echo $capacity; ?></td>
             </tr>
-            <?php } //end while loop: fetching vehicle information ?>
-        </table> <!--table displaying vehicle information-->
-    </div><!--end table box starts here-->
+            <?php } ?>
+        </table>
     </div>
 </div>
 <!--END MAIN CONTAINER:: ALL THINGS CONTAINED-->
