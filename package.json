@@ -1,0 +1,23 @@
+{
+  "name": "vehicle",
+  "version": "1.0.0",
+  "description": "Vehicle Fleet Management System",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile:sass": "sass sass/main.scss custom-css/main.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RenoGunray/vehicle-fleet-manament-systen.git"
+  },
+  "author": "RenoGunray <theodorenkhwamba@gmail.com> (http://RenoGunray.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RenoGunray/vehicle-fleet-manament-systen/issues"
+  },
+  "homepage": "https://github.com/RenoGunray/vehicle-fleet-manament-systen#readme",
+  "devDependencies": {
+    "sass": "^1.32.13"
+  }
+}
