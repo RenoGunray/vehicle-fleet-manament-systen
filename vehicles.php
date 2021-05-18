@@ -71,8 +71,8 @@ include 'conn.php';
     <div class="table-box"> <!--table box starts here-->
         <div class="table-box-title-bar">
             <p>Assigned</p>
-            <a href="#" class="cus-btn">Assign Driver</a>
-        <div>
+            <a href="#" class="cus-btn">Assign vehicle</a>
+        </div>
         <table class="tables"> <!--table displaying vehicle information-->
             <!--table headers-->
             <th>id</th>
@@ -81,7 +81,7 @@ include 'conn.php';
             <th>Capacity</th>
             <th>Driver #</th>
             <th>Driver</th>
-            <?php $sel = mysqli_query($conn, "select v_id, name, type, capacity, driver, driver_id from vehicles where driver_id>='1'");?>
+            <?php $sel = mysqli_query($conn, "select * from vehicles join assigned_vehicles where v_id=vehicle_id");?>
 
             <?php
                 if(mysqli_num_rows($sel)==0) {
@@ -94,8 +94,14 @@ include 'conn.php';
                        // $serial = $row['serialno'];
                         $type = $row['type'];
                         $capacity = $row['capacity'];
-                        $driver = $row['driver'];
+                        //$driver = $row['driver'];
                         $driver_id = $row['driver_id'];
+            ?>
+
+            <?php  
+            $sel2 = mysqli_query($conn, "select * from drivers where dr_id='$driver_id'");
+            while($row2=mysqli_fetch_array($sel2)){
+                $driver_name = $row2['fname'].' '.$row2['lname'];
             ?>
             <tr>
             <td><?php echo $v_id; ?></td>
@@ -103,10 +109,11 @@ include 'conn.php';
             <td><?php echo $type; ?></td>
             <td><?php echo $capacity; ?></td>
             <td><?php echo $driver_id; ?></td>
-            <td><?php echo $driver; ?></td>
+            <td><?php echo $driver_name; ?></td>
             </tr>
             <?php }//end while loop: fetching vehicle information
-                    }//end else statement  ?>
+                    }//end else statement  
+                        } ?>
         </table> <!--table displaying vehicle information-->
     </div><!--end table box starts here-->
     </div>
