@@ -34,7 +34,7 @@ include 'conn.php';
     <div class="table-box"> <!--table box starts here-->
         <div class="table-box-title-bar">
             <p>All Drivers</p>
-            <a href="register-vehicle.php" class="cus-btn">Add Driver</a>
+            <a href="registration.php" class="cus-btn">Add Driver</a>
         </div>
         <table class="tables"> <!--table displaying vehicle information-->
             <!--table headers-->
