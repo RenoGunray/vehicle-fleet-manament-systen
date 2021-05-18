@@ -71,6 +71,8 @@ class Registration{
         }
     }
 
+    
+
     public function assignDriver() {
         include 'conn.php';
         $this->name = $_POST['name'];
@@ -90,6 +92,41 @@ class Registration{
                 }
             }
         }
+    }
+
+    private $destination;
+    private $area;
+
+    public function registerRout() {
+        $this->fname = $_POST['road_name'];
+        $this->destination = $_POST['destination'];
+        $this->area = $_POST['area'];
+        include 'conn.php';
+
+        if (isset($this->fname) and isset($this->destination) and isset($this->area)){
+            $ins = mysqli_query($conn, "insert into routs (r_name, r_area, destination) values ('".$this->fname."', '".$this->area."', '".$this->destination."')");
+            if ($ins) {
+                echo "<p class='text-success'><strong>rout registered successful</strong></p>";
+            }
+        }
+
+    }
+
+    private $district;
+
+    public function registerLocation() {
+        $this->fname = $_POST['name'];
+        $this->district = $_POST['district'];
+        $this->area = $_POST['area'];
+        include 'conn.php';
+
+        if (isset($this->fname) and isset($this->area) and isset($this->district)){
+            $ins = mysqli_query($conn, "insert into locations (l_name, l_area, district) values ('".$this->fname."', '".$this->area."', '".$this->district."')");
+            if ($ins) {
+                echo "<p class='text-success'><strong>rout registered successful</strong></p>";
+            }
+        }
+
     }
 }
 
