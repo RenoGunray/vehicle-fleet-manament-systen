@@ -70,6 +70,27 @@ class Registration{
             }
         }
     }
+
+    public function assignDriver() {
+        include 'conn.php';
+        $this->name = $_POST['name'];
+        $this->model = $_POST['model'];
+        $this->serial = $_POST['serial'];
+        $this->fname = $_POST['driver'];
+
+        if(isset($this->fname)) {
+            $sel = mysqli_query($conn, "select * from assigned_vehicles where serial_num='".$this->serial."' and driver_id='".$this->fname."'");
+            if(mysqli_num_rows($sel)==1){
+                echo "<p class='text-danger'><strong>this car has a driver</strong></p>";
+            }else{
+                //$update = mysqli_query($conn, "update vehicles set driver_id='".$this->fname."'  where v_id='".$this->name."'");
+                $ins = mysqli_query($conn, "insert into assigned_vehicles (vehicle_id, model, serial_num, driver_id) values ('".$this->name."', '".$this->model."', '".$this->serial."', '".$this->fname."')");
+                if($ins){
+                    echo "<p class='text-success'><strong>Vehicle Assignment successfull</strong></p>";
+                }
+            }
+        }
+    }
 }
 
 class Login extends Registration{ //inherit class registration
