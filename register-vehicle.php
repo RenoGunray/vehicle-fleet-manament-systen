@@ -23,7 +23,7 @@ if(isset($name)){
     <!-- registration form -->
     <div class="container log-padding">
         <div class="card log-card-padd">
-            <form action="vehicles.php" method="post">
+            <form action="register-vehicle.php" method="post">
                 <div class="form-group">
                 <label>Name</label>
                 <input type="text" name="name" class="form-control" placeholder="Name">
