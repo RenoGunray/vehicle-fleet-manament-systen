@@ -44,6 +44,7 @@ include 'conn.php';
             <th>Serial #</th>
             <th>Type</th>
             <th>Capacity</th>
+            <th>Actions</th>
             <?php $sel = mysqli_query($conn, "select * from vehicles");?>
 
             <?php 
@@ -62,6 +63,7 @@ include 'conn.php';
             <td><?php echo $serial; ?></td>
             <td><?php echo $type; ?></td>
             <td><?php echo $capacity; ?></td>
+            <td><a href="move-to-location.php?id=<?php echo $v_id; ?>&& name=<?php echo $name; ?>">Move</a></td>
             </tr>
             <?php } //end while loop: fetching vehicle information ?>
         </table> <!--table displaying vehicle information-->
