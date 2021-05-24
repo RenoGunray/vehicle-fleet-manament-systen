@@ -35,12 +35,13 @@ include 'conn.php';
         <div class="table-box-title-bar">
             <p>All Routs</p>
             <a href="register-routs.php" class="cus-btn">Add Route</a>
+            <a href="assgn-to-rout.php" class="cus-btn">Add vehicle to rout</a>
         </div>
         <table class="tables"> <!--table displaying vehicle information-->
             <!--table headers-->
             <th>id</th>
             <th>Name</th>
-            <th>Phone</th>
+            <th>In Between Districts</th>
             <?php $sel = mysqli_query($conn, "select * from routs");?>
 
             <?php 
