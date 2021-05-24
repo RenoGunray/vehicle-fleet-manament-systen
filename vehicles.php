@@ -119,7 +119,7 @@ include 'conn.php';
 
     <div class="table-box"> <!--table box starts here-->
         <div class="table-box-title-bar">
-            <p>Assigned</p>
+            <p>Unassigned</p>
             <a href="#" class="cus-btn">Assign vehicle</a>
         </div>
         <table class="tables"> <!--table displaying vehicle information-->
