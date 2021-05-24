@@ -1,95 +1,94 @@
 /*log in*/
-
-.log-padding{
-    padding: 5%;
+.log-padding {
+  padding: 5%;
 }
 
-.log-card-padd, .intro{
-    padding: 2%;
-    width: 60%;
-    margin: auto;
+.log-card-padd, .intro {
+  padding: 2%;
+  width: 60%;
+  margin: auto;
 }
 
-.intro .logo{
-    width: 100px;
-    margin: auto;
+.intro .logo {
+  width: 100px;
+  margin: auto;
 }
 
-.intro{
-    justify-content: flex;
-    flex-direction: column;
+.intro {
+  justify-content: flex;
+  flex-direction: column;
 }
 
-.logo img{
-    width: 70px;
-    height: 70px;
-    border-radius: 70px;
+.logo img {
+  width: 70px;
+  height: 70px;
+  border-radius: 70px;
 }
 
-.titles{
-    padding: 25px 0px 25px 0px; 
+.titles {
+  padding: 25px 0px 25px 0px;
 }
 
-.field-set{
-    all: initial;
-    font-family: sans-serif;
+.field-set {
+  all: initial;
+  font-family: sans-serif;
 }
 
-.field-set legend{
-    padding: 2%;
+.field-set legend {
+  padding: 2%;
 }
 
-.redo-field{
-    border: 1px solid rgb(207, 207, 207);
-    padding: 5%;
-    width: 100%;
+.redo-field {
+  border: 1px solid #cfcfcf;
+  padding: 5%;
+  width: 100%;
 }
 
 /*end log in*/
-
 /* Navigation Bar */
-
-nav{
-    width: 100%;
-    border: 1px solid green;
+nav {
+  width: 100%;
+  border: 1px solid green;
 }
 
-.navigation{
-    display: flex;
-    justify-content: space-between;
-    padding: 1%;
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 1%;
 }
 
-.nav-lists{
-    width: 400px;
-    display: flex;
-    justify-content: space-between;
-    padding-left: 1%;
-    padding-right: 1%;
+.nav-lists {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 
 /* End Navigation Bar */
-
 /*Transport Officer Dashboard All things Contained*/
-
-.all-things-contained{
-    
+.table-box {
+  border: 1px solid green;
+  padding: 2%;
+  margin-top: 20px;
 }
 
-.tpo-nav-items{
-    width: 70%;
-    margin: auto;
-    display: flex;
-    justify-content: space-around;
+.tpo-nav-items {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
 }
 
-.tables{
-    width: 60%;
+.tables {
+  width: 100%;
 }
 
-.tables tr{
-    border-bottom: 1px solid rgb(201, 201, 201);
-    border-top: 1px solid rgb(201, 201, 201);
+.tables tr {
+  border-bottom: 1px solid #c9c9c9;
+  border-top: 1px solid #c9c9c9;
 }
 
 /*End Transport Officer Dashboard All things Contained*/
+
+/*# sourceMappingURL=main.css.map */

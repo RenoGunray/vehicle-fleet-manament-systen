@@ -70,6 +70,80 @@ class Registration{
             }
         }
     }
+
+    
+
+    public function assignDriver() {
+        include 'conn.php';
+        $this->name = $_POST['name'];
+        $this->model = $_POST['model'];
+        $this->serial = $_POST['serial'];
+        $this->fname = $_POST['driver'];
+
+        if(isset($this->fname)) {
+            $sel = mysqli_query($conn, "select * from assigned_vehicles where serial_num='".$this->serial."' and driver_id='".$this->fname."'");
+            if(mysqli_num_rows($sel)==1){
+                echo "<p class='text-danger'><strong>this car has a driver</strong></p>";
+            }else{
+                //$update = mysqli_query($conn, "update vehicles set driver_id='".$this->fname."'  where v_id='".$this->name."'");
+                $ins = mysqli_query($conn, "insert into assigned_vehicles (vehicle_id, model, serial_num, driver_id) values ('".$this->name."', '".$this->model."', '".$this->serial."', '".$this->fname."')");
+                if($ins){
+                    echo "<p class='text-success'><strong>Vehicle Assignment successfull</strong></p>";
+                }
+            }
+        }
+    }
+
+    private $destination;
+    private $area;
+
+    public function registerRout() {
+        $this->fname = $_POST['road_name'];
+        $this->destination = $_POST['destination'];
+        $this->area = $_POST['area'];
+        include 'conn.php';
+
+        if (isset($this->fname) and isset($this->destination) and isset($this->area)){
+            $ins = mysqli_query($conn, "insert into routs (r_name, r_area, destination) values ('".$this->fname."', '".$this->area."', '".$this->destination."')");
+            if ($ins) {
+                echo "<p class='text-success'><strong>rout registered successful</strong></p>";
+            }
+        }
+
+    }
+
+    private $district;
+
+    public function registerLocation() {
+        $this->fname = $_POST['name'];
+        $this->district = $_POST['district'];
+        $this->area = $_POST['area'];
+        include 'conn.php';
+
+        if (isset($this->fname) and isset($this->area) and isset($this->district)){
+            $ins = mysqli_query($conn, "insert into locations (l_name, l_area, district) values ('".$this->fname."', '".$this->area."', '".$this->district."')");
+            if ($ins) {
+                echo "<p class='text-success'><strong>rout registered successful</strong></p>";
+            }
+        }
+
+    }
+
+    public function assignToRout() {
+        include 'conn.php';
+        $this->name = $_POST['name'];
+        $this->model = $_POST['model'];
+        $this->serial = $_POST['serial'];
+        $this->area = $_POST['area'];
+        $this->fname = $_POST['routname'];
+
+        if(isset($this->name)) {
+            $ins = mysqli_query($conn, "insert into assigned_rout (car_id, car_model, car_serialno, rout_name, rout_area, date_entry) values ('".$this->name."', '".$this->model."', '".$this->serial."', '".$this->fname."', '".$this->area."', now())");
+            if ($ins){
+                echo "<p class='text-success font-weight-bold'>Vehicle assigned to rout successful</p>";
+            }
+        }
+    }
 }
 
 class Login extends Registration{ //inherit class registration
@@ -162,6 +236,24 @@ class Login extends Registration{ //inherit class registration
                 header("location: admin-dash.php");
             }
 
+        }
+    }
+}
+
+class MoveVehicles extends Registration{
+    public function moveVehicle() {
+        $this->name = $_POST['name'];
+        $this->area = $_POST['area'];
+        $this->district = $_POST['district'];
+        $this->fname = $_POST['v-name'];
+        include 'conn.php';
+
+        if (isset($this->name) and isset($this->fname)) {
+            $ins = mysqli_query($conn, "insert into alocated (location_id, area_name, district_name, vehicle_id, date_added) values ('".$this->name."', '".$this->area."', '".$this->district."', '".$this->fname."', now())");
+
+            if($ins) {
+                echo "<p class='text-success font-weight-bold'>vehicle moved successfuly</p>";
+            }
         }
     }
 }
