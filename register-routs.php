@@ -30,7 +30,7 @@ include 'conn.php';
 
                 <div class="form-group">
                 <lable>Area</label>
-                <input type="text" name="area" class="form-control" placeholder="Phone Number">
+                <input type="text" name="area" class="form-control" placeholder="Area">
                 </div>
 
                 <div class="form-group">
