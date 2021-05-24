@@ -128,6 +128,22 @@ class Registration{
         }
 
     }
+
+    public function assignToRout() {
+        include 'conn.php';
+        $this->name = $_POST['name'];
+        $this->model = $_POST['model'];
+        $this->serial = $_POST['serial'];
+        $this->area = $_POST['area'];
+        $this->fname = $_POST['routname'];
+
+        if(isset($this->name)) {
+            $ins = mysqli_query($conn, "insert into assigned_rout (car_id, car_model, car_serialno, rout_name, rout_area, date_entry) values ('".$this->name."', '".$this->model."', '".$this->serial."', '".$this->fname."', '".$this->area."', now())");
+            if ($ins){
+                echo "<p class='text-success font-weight-bold'>Vehicle assigned to rout successful</p>";
+            }
+        }
+    }
 }
 
 class Login extends Registration{ //inherit class registration
