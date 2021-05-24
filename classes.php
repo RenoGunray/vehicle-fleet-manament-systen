@@ -239,4 +239,22 @@ class Login extends Registration{ //inherit class registration
         }
     }
 }
+
+class MoveVehicles extends Registration{
+    public function moveVehicle() {
+        $this->name = $_POST['name'];
+        $this->area = $_POST['area'];
+        $this->district = $_POST['district'];
+        $this->fname = $_POST['v-name'];
+        include 'conn.php';
+
+        if (isset($this->name) and isset($this->fname)) {
+            $ins = mysqli_query($conn, "insert into alocated (location_id, area_name, district_name, vehicle_id, date_added) values ('".$this->name."', '".$this->area."', '".$this->district."', '".$this->fname."', now())");
+
+            if($ins) {
+                echo "<p class='text-success font-weight-bold'>vehicle moved successfuly</p>";
+            }
+        }
+    }
+}
 ?>
