@@ -86,7 +86,7 @@ $car_name = $_GET['name'];
                 <?php
                 if(isset($_POST['move'])) {
                     $reg = new MoveVehicles();
-                    $reg->moveVehicle();
+                    $reg->moveToLocation();
                     header("location: vehicles.php");
                 }
                 ?>
