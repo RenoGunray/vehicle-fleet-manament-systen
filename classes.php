@@ -241,7 +241,7 @@ class Login extends Registration{ //inherit class registration
 }
 
 class MoveVehicles extends Registration{
-    public function moveVehicle() {
+    public function moveToLocation() {
         $this->name = $_POST['name'];
         $this->area = $_POST['area'];
         $this->district = $_POST['district'];
@@ -253,6 +253,23 @@ class MoveVehicles extends Registration{
 
             if($ins) {
                 echo "<p class='text-success font-weight-bold'>vehicle moved successfuly</p>";
+            }
+        }
+    }
+
+    public function moveToDamaged() {
+        $this->name = $_POST['name'];
+        $this->model = $_POST['model']; 
+        $this->serial =  $_POST['serial'];
+        $this->type = $_POST['type'];
+        include 'conn.php';
+
+        if (isset($this->name)) {
+            $ins = mysqli_query($conn, "insert into damaged (vh_id, v_model, v_serial, v_type, date_added) values ('".$this->name."', '".$this->model."', '".$this->serial."', '".$this->type."', now())");
+
+            if ($ins) {
+                echo "<p class='text-success font-weight-bold'>vehicle moved successfuly</p>";
+                header("location: vehicles.php");
             }
         }
     }
